@@ -114,6 +114,21 @@ non-dev workflows — not to adopt any one of them wholesale.
   Includes a written specification (`./specification`), ADRs (`./adrs`),
   governance docs, and an SDK published to PyPI as `a2a-sdk`.
 
+### Reference implementations
+
+Production code that implements one of the specs above. Useful for seeing
+how a written spec lands as a real codebase — what's idiomatic, what's
+left as an exercise, what's needed to bridge existing systems.
+
+#### [mcp-api](./mcp-api) — Dynamic MCP server for REST APIs
+- **Repo:** https://github.com/Parslee-ai/mcp-api
+- **Maintainer:** Parslee AI (`Parslee-ai` org)
+- **Summary:** Generates MCP tools dynamically from existing API
+  definitions (OpenAPI, Swagger, Postman Collections, GraphQL). A direct
+  counterpart to the MCP spec above — read together to see how the
+  protocol's tool/prompt/resource primitives translate into a working
+  server. Written in C#.
+
 ### Data & dataset specifications
 
 #### [frictionless-specs](./frictionless-specs) — Data Package

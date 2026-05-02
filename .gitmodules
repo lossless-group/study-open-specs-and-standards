@@ -28,3 +28,6 @@
 [submodule "spec-kit"]
 	path = spec-kit
 	url = https://github.com/github/spec-kit.git
+[submodule "mcp-api"]
+	path = mcp-api
+	url = https://github.com/Parslee-ai/mcp-api.git
