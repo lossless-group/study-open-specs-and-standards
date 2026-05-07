@@ -31,6 +31,10 @@ non-dev workflows — not to adopt any one of them wholesale.
 
 ---
 
+## Candidates
+`https://github.com/nmelo/initech`
+`https://github.com/obra/superpowers`
+
 ## The collection
 
 ### Specs for guiding agents inside a project

@@ -31,3 +31,15 @@
 [submodule "mcp-api"]
 	path = mcp-api
 	url = https://github.com/Parslee-ai/mcp-api.git
+[submodule "get-shit-done"]
+	path = get-shit-done
+	url = https://github.com/gsd-build/get-shit-done.git
+[submodule "symphony"]
+	path = symphony
+	url = https://github.com/openai/symphony.git
+[submodule "openui"]
+	path = openui
+	url = https://github.com/lossless-group/openui.git
+[submodule "superpowers"]
+	path = superpowers
+	url = https://github.com/obra/superpowers.git
