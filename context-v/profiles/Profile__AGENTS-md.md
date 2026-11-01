@@ -27,6 +27,7 @@ summary: >-
   goes in a repo's agent-facing context file versus its README, and note that the convention is
   advisory — enforcement belongs to the host runtime's permission system.
 publish: true
+type: Profiles
 ---
 
 # AGENTS.md — Profile

@@ -27,6 +27,7 @@ summary: >-
   Schema, the SEP process, and the Linux Foundation BDFL governance model. Note that the protocol
   cannot enforce its own security model — consent and tool-description distrust are the host's job.
 publish: true
+type: Profiles
 ---
 
 # Model Context Protocol (MCP) — Profile

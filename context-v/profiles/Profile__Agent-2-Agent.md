@@ -27,6 +27,7 @@ summary: >-
   whether a service belongs behind an A2A endpoint, and as the map to the normative .proto before
   reading the 3611-line prose spec.
 publish: true
+type: Profiles
 ---
 
 # Agent2Agent (A2A) Protocol — Profile

@@ -27,6 +27,7 @@ summary: >-
   Use it when publishing docs for LLM consumption or when deciding between llms.txt, robots.txt,
   and sitemap.xml.
 publish: true
+type: Profiles
 ---
 
 # llms.txt — Profile

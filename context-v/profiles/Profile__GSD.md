@@ -27,6 +27,7 @@ summary: >-
   the context-rot argument and the thin-orchestrator pattern; note the profile's explicit list of
   cases where a spec artifact matters more than a workflow.
 publish: true
+type: Profiles
 ---
 
 # GSD (Get Shit Done) — Profile

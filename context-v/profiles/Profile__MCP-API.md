@@ -27,6 +27,7 @@ summary: >-
   limits checked before dispatch, and the SSRF defense that is mandatory for any product that
   executes user-supplied URLs. Use it for the hardening checklist, not as a spec.
 publish: true
+type: Profiles
 ---
 
 # MCP-API — Profile

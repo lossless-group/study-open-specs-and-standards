@@ -14,6 +14,7 @@ summary: >-
   treat this as the work order for a future sweep across the pinned submodules, and should append
   answers under the existing sub-inquiry headings rather than starting a new document.
 publish: false
+type: Inquiry
 ---
 
 ## Sub-Inquiries

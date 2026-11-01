@@ -26,6 +26,7 @@ summary: >-
   contributor guide's 94%-rejection anti-slop posture. Ends with an honest fit note against
   Lossless conventions: the techniques are worth lifting; wholesale adoption probably is not.
 publish: true
+type: Profiles
 ---
 
 # Superpowers — Profile

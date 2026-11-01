@@ -26,6 +26,7 @@ summary: >-
   against the emerging agent specs. Read it as the reference exemplar when evaluating or designing
   a new open spec, not as something to adopt for behavior specification.
 publish: true
+type: Profiles
 ---
 
 # Frictionless Specs — Profile

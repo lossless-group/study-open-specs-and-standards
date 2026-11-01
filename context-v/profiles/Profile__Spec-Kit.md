@@ -27,6 +27,7 @@ summary: >-
   is regeneration of downstream artifacts, not in-place editing. Use it when compliance,
   traceability, and greenfield alignment matter more than iteration speed.
 publish: true
+type: Profiles
 ---
 
 # Spec Kit — Profile

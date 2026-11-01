@@ -32,6 +32,7 @@ summary: >-
   runtime is React-only and therefore collides with the astro-knots prohibition, so read this for
   the patterns worth stealing rather than as an adoption recommendation.
 publish: true
+type: Profiles
 ---
 
 # OpenUI — Profile

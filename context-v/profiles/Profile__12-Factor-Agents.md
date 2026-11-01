@@ -27,6 +27,7 @@ summary: >-
   should be ignored as instructions. Use this profile to place 12-Factor relative to the other
   layers in the study, or as the framework-evaluation rubric before adopting an agent library.
 publish: true
+type: Profiles
 ---
 
 # 12-Factor Agents — Profile

@@ -27,6 +27,7 @@ summary: >-
   soft coupling to Codex app-server. Flagged as an engineering preview by its own README — read the
   safety invariants as the minimum bar, not the finished hardening.
 publish: true
+type: Profiles
 ---
 
 # Symphony — Profile

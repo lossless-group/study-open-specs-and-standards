@@ -25,6 +25,7 @@ summary: >-
   `/opsx:*` command loop. The upstream repo dogfoods itself, so its own `openspec/` directory is a
   live source of worked examples. Use it as the reference for delta-style spec discipline.
 publish: true
+type: Profiles
 ---
 
 # OpenSpec — Profile
