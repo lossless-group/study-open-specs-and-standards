@@ -2,6 +2,8 @@
 title: Filesystem Naming Conventions
 main_inquiry: "What are the common filesystem naming conventions used in these open source specs and how do they differ from each other?"
 date_crated: 2026-05-02
+date_created: 2026-05-02
+date_modified: 2026-08-18
 authors:
 - Michael Staton
 site_uuid: 84b3b7c1-74ab-4d45-9167-ee7d2c3184ac
@@ -13,6 +15,7 @@ summary: >-
   every item still unchecked. There is no analysis here yet and nothing to cite. An agent should
   treat this as the work order for a future sweep across the pinned submodules, and should append
   answers under the existing sub-inquiry headings rather than starting a new document.
+status: Draft
 publish: false
 type: Inquiry
 ---
