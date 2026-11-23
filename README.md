@@ -45,7 +45,7 @@ branch. Dates are commit dates of the old and new pins. Profiles in
 | ai-skills | 2026-04-23 → 2026-11-16 | 33 | none (untagged) |
 | design-md | 2026-05-02 → 2026-11-17 | 45 | 0.4.0 tag; package 0.4.1 |
 | frictionless-specs | 2026-01-08 → 2026-08-25 | 2 | v2.0 |
-| get-shit-done | 2026-05-04 → 2026-05-31 | 561 | v1.42.3 (repo **archived**) |
+| gsd-core (was get-shit-done) | 2026-05-31 → 2026-11-23 | 4414 | v1.23.0 (`@opengsd/gsd-core`) |
 | llms-txt | 2026-04-29 → 2026-09-25 | 20 | 0.0.7 (proposal "v2") |
 | mcp-api | 2026-02-08 → 2026-02-08 | 0 | v1.0.0 |
 | modelcontextprotocol | 2026-04-27 → 2026-11-21 | 1232 | spec `2026-07-28` |
@@ -62,8 +62,11 @@ What a reader should know first:
   server-initiated requests. Roots, Sampling, and Logging are deprecated.
 - **llms.txt v2** drops the special meaning of `## Optional`, scopes files to
   paths, and adds `rel="alternate"` / `rel="describedby"` discovery.
-- **get-shit-done is archived.** Development moved to `open-gsd/gsd-core`
-  (not pinned here); the pinned README is now a redirect.
+- **The study now pins gsd-core.** `gsd-build/get-shit-done` was archived,
+  so the study follows its successor, `open-gsd/gsd-core` (GSD Core,
+  v1.23.0). The two share history until a May 2026 fork; the old
+  2026-05-31 pin is not in gsd-core, so its commit count runs from the
+  2026-05-04 pin.
 - **A2A joined the Agentic AI Foundation**, alongside MCP and AGENTS.md, and
   its TSC grew to nine companies.
 - **OpenSpec 2.0** installs skills only; `/opsx:*` became `/openspec-*`.
@@ -206,9 +209,10 @@ left as an exercise, what's needed to bridge existing systems.
 
 ### Also pinned (profiled, not yet grouped above)
 
-- [get-shit-done](./get-shit-done) — GSD, a context-engineering workflow
-  orchestrator. **Archived** on 2026-05-31; development continues as GSD
-  Core at https://github.com/open-gsd/gsd-core, which is not pinned here.
+- [gsd-core](./gsd-core) — GSD Core (`@opengsd/gsd-core`), a
+  context-engineering workflow orchestrator that runs a phase loop through
+  fresh-context subagents across 18 AI runtimes. Successor to the archived
+  `gsd-build/get-shit-done`.
 - [openui](./openui) — Thesys's OpenUI, a generative-UI framework with its
   own language, OpenUI Lang, now specified in a written 1.0 spec (`spec/`).
 - [superpowers](./superpowers) — Jesse Vincent's agent-development
