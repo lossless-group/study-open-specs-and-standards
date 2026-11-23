@@ -1,13 +1,13 @@
 ---
 title: "GSD (Get Shit Done) — Profile"
 name: GSD (Get Shit Done) Profile
-slug: get-shit-done
-upstream: https://github.com/gsd-build/get-shit-done
-package: get-shit-done-cc
+slug: gsd-core
+upstream: https://github.com/open-gsd/gsd-core
+package: "@opengsd/gsd-core"
 license: MIT
 maintainer: TÂCHES / gsd-build
 study: studies/open-specs-and-standards
-profile_path: studies/open-specs-and-standards/get-shit-done
+profile_path: studies/open-specs-and-standards/gsd-core
 profile_kind: tool
 date_created: 2026-05-05
 date_modified: 2026-11-23
@@ -19,16 +19,17 @@ lede: >-
   GSD's wager is that the limiting factor is context rot, not spec rigor — so
   it ships no spec grammar and resets the window per task.
 summary: >-
-  Profile of Get Shit Done as pinned in this study. GSD is the third design path in the
-  spec-and-workflow cluster alongside OpenSpec and Spec Kit: where those give you a spec format,
-  GSD gives you an orchestrator. Covers the typed `.planning/` file inventory, the XML `<task>`
-  primitive with its `<verify>` and `<done>` tags, the six-command loop and its wave-based
-  parallelism, the 16-runtime installer, the 11 runtime hooks (including prompt-injection scanning
-  of planning artifacts, which are themselves system prompts), atomic per-task commits with
-  file-locked STATE.md writes, and the heavier-than-average recovery surface. Use it to understand
-  the context-rot argument and the thin-orchestrator pattern; note the profile's explicit list of
-  cases where a spec artifact matters more than a workflow. The pinned repo was archived on
-  2026-05-31; development continues as GSD Core at open-gsd/gsd-core, which this study does not pin.
+  Profile of GSD as pinned in this study, now as GSD Core (open-gsd/gsd-core, @opengsd/gsd-core
+  v1.23.0), the community-maintained continuation of gsd-build/get-shit-done. GSD is the third
+  design path in the spec-and-workflow cluster alongside OpenSpec and Spec Kit: where those give
+  you a spec format, GSD gives you an orchestrator. Covers the typed `.planning/` file inventory,
+  the XML `<task>` primitive with its `<verify>`, `<acceptance_criteria>` and `<done>` tags, the
+  phase loop and its wave-based parallelism, the 18-runtime installer, the 29 hooks (including
+  prompt-injection scanning of planning artifacts, which are themselves system prompts), atomic
+  per-task commits with file-locked STATE.md writes, the capability system added after the move,
+  and the heavier-than-average recovery surface. Use it to understand the context-rot argument and
+  the thin-orchestrator pattern; note the profile's explicit list of cases where a spec artifact
+  matters more than a workflow.
 authors:
   - Michael Staton
 status: Reference
