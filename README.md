@@ -31,6 +31,48 @@ non-dev workflows — not to adopt any one of them wholesale.
 
 ---
 
+## Pins last refreshed 2026-11-23
+
+Every submodule was moved to the latest commit on its upstream default
+branch. Dates are commit dates of the old and new pins. Profiles in
+`context-v/profiles/` each carry a "Changes since the previous pin" section.
+
+| Repo | Old → new pin | Commits | Latest release at new pin |
+|---|---|---:|---|
+| 12-factor-agents | 2025-09-21 → 2025-09-21 | 0 | none (untagged) |
+| agent-2-agent | 2026-04-23 → 2026-11-18 | 105 | v1.0.1 |
+| agents-md | 2026-03-12 → 2026-09-10 | 3 | none (untagged) |
+| ai-skills | 2026-04-23 → 2026-11-16 | 33 | none (untagged) |
+| design-md | 2026-05-02 → 2026-11-17 | 45 | 0.4.0 tag; package 0.4.1 |
+| frictionless-specs | 2026-01-08 → 2026-08-25 | 2 | v2.0 |
+| get-shit-done | 2026-05-04 → 2026-05-31 | 561 | v1.42.3 (repo **archived**) |
+| llms-txt | 2026-04-29 → 2026-09-25 | 20 | 0.0.7 (proposal "v2") |
+| mcp-api | 2026-02-08 → 2026-02-08 | 0 | v1.0.0 |
+| modelcontextprotocol | 2026-04-27 → 2026-11-21 | 1232 | spec `2026-07-28` |
+| open-spec | 2026-05-01 → 2026-11-19 | 487 | v2.1.1 |
+| openui | 2026-05-06 → 2026-11-21 | 665 | none (per-package; lang-core 1.1.1, spec 1.0) |
+| spec-kit | 2026-05-01 → 2026-11-20 | 1579 | v1.4.3 |
+| superpowers | 2026-05-04 → 2026-11-03 | 247 | v7.0.2 |
+| symphony | 2026-04-27 → 2026-09-15 | 35 | v0.0.3 |
+
+What a reader should know first:
+
+- **MCP `2026-07-28`** is stateless: no `initialize` handshake or sessions,
+  a `server/discover` RPC, and Multi Round-Trip Requests in place of
+  server-initiated requests. Roots, Sampling, and Logging are deprecated.
+- **llms.txt v2** drops the special meaning of `## Optional`, scopes files to
+  paths, and adds `rel="alternate"` / `rel="describedby"` discovery.
+- **get-shit-done is archived.** Development moved to `open-gsd/gsd-core`
+  (not pinned here); the pinned README is now a redirect.
+- **A2A joined the Agentic AI Foundation**, alongside MCP and AGENTS.md, and
+  its TSC grew to nine companies.
+- **OpenSpec 2.0** installs skills only; `/opsx:*` became `/openspec-*`.
+- **OpenUI** published a written 1.0 specification for OpenUI Lang.
+- **ai-skills** moved the docx, pdf, pptx, and xlsx skills from an
+  all-rights-reserved license to Apache 2.0.
+
+---
+
 ## Candidates
 `https://github.com/nmelo/initech`
 `https://github.com/obra/superpowers`
@@ -45,6 +87,8 @@ non-dev workflows — not to adopt any one of them wholesale.
 - **Summary:** A simple, open Markdown format — a "README for agents" — that
   gives coding agents a predictable place for dev environment tips, test
   instructions, and PR rules. Free-form Markdown with conventional headings.
+  Stewarded as an LF Projects series under the Agentic AI Foundation; the
+  repo now includes its `Technical_Charter.pdf` (MIT code, CC BY 4.0 docs).
 
 #### [ai-skills](./ai-skills) — Anthropic Agent Skills
 - **Repo:** https://github.com/anthropics/skills
@@ -53,21 +97,28 @@ non-dev workflows — not to adopt any one of them wholesale.
   — folders of instructions, scripts, and resources (`SKILL.md` + assets)
   that an agent loads dynamically for specialized tasks. Includes the spec
   (`./spec`), a template (`./template`), and example skills (`./skills`).
+  The docx, pdf, pptx, and xlsx skills moved to Apache 2.0 in this pin
+  range, so the whole repo is now open source; most other changes are
+  `claude-api` skill updates.
 
 #### [open-spec](./open-spec) — OpenSpec
 - **Repo:** https://github.com/Fission-AI/OpenSpec
 - **Maintainer:** Fission AI
 - **Summary:** A spec-driven workflow framework distributed as an npm package
-  (`@fission-ai/openspec`). Emphasizes iterative, brownfield-friendly
-  specification of changes via slash-commands and an artifact-guided flow.
+  (`@fission-ai/openspec`, v2.x) and a standalone binary. Emphasizes
+  iterative, brownfield-friendly specification of changes via delta specs
+  and an artifact-guided flow. Since 2.0 it installs agent skills
+  (`/openspec-propose`, …) instead of `/opsx:*` slash commands.
 
 #### [spec-kit](./spec-kit) — GitHub Spec Kit
 - **Repo:** https://github.com/github/spec-kit
 - **Maintainer:** GitHub
-- **Summary:** An open-source toolkit for *Spec-Driven Development*. Provides
-  a `specify` CLI, presets, extensions, and integrations with multiple AI
-  coding agents. Captures product scenarios and predictable outcomes as the
-  primary artifact, with code generated against them.
+- **Summary:** An open-source toolkit for *Spec-Driven Development*, and since
+  v1.0 (August 2026) for other agent processes too: bug fixing and idea
+  assessment ship as bundled extensions. Provides a `specify` CLI, presets,
+  extensions, workflows, bundles, and 43 coding-agent integrations. Captures
+  product scenarios and predictable outcomes as the primary artifact, with
+  code generated against them.
 
 ### Methodology / principles
 
@@ -87,7 +138,9 @@ non-dev workflows — not to adopt any one of them wholesale.
 - **Summary:** A proposal for websites to publish a root `/llms.txt` Markdown
   file plus `.md`-suffixed versions of pages, providing LLM-friendly content
   at inference time. Includes the `llms_txt2ctx` CLI for compressing the
-  index into a context blob.
+  index into a context blob. The proposal's v2 (August 2026) lets files sit
+  at any path, adds link-relation discovery, and removes the CLI and the
+  `## Optional` semantic from the proposal itself; the code still ships.
 
 #### [design-md](./design-md) — `DESIGN.md`
 - **Repo:** https://github.com/google-labs-code/design.md
@@ -95,7 +148,9 @@ non-dev workflows — not to adopt any one of them wholesale.
 - **Summary:** A format for describing a visual identity to coding agents.
   Combines machine-readable design tokens (YAML front matter) with
   human-readable rationale (Markdown prose) so agents have both the values
-  and the *why*.
+  and the *why*. Published as `@google/design.md` (0.4.x, Apache 2.0) with a
+  linter and exporters (Tailwind, CSS variables, DTCG); the spec gained
+  Motion and Voice & Content sections, grouped tokens, and `@`-references.
 
 ### Wire protocols & schemas
 
@@ -108,15 +163,19 @@ non-dev workflows — not to adopt any one of them wholesale.
 - **Summary:** The Model Context Protocol — a standard for connecting LLM
   applications to context, tools, and prompts. The schema is authored in
   TypeScript and emitted to JSON Schema. Documentation is built with
-  Mintlify at https://modelcontextprotocol.io.
+  Mintlify at https://modelcontextprotocol.io. Latest protocol version is
+  `2026-07-28`, which made the protocol stateless. A project of the
+  Agentic AI Foundation since December 2025.
 
 #### [agent-2-agent](./agent-2-agent) — A2A Protocol
 - **Repo:** https://github.com/a2aproject/A2A
-- **Maintainer:** A2A Project (Google-initiated; multi-vendor governance)
+- **Maintainer:** A2A Project (Google-initiated; nine-company TSC; an
+  Agentic AI Foundation project since August 2026)
 - **License:** Apache 2.0
 - **Summary:** Agent2Agent — an open protocol for inter-agent communication.
   Includes a written specification (`./specification`), ADRs (`./adrs`),
-  governance docs, and an SDK published to PyPI as `a2a-sdk`.
+  and governance docs. SDKs live in sibling repos (Python `a2a-sdk`, Go,
+  JS, Java, .NET, and now Rust), plus an A2A CLI.
 
 ### Reference implementations
 
@@ -131,7 +190,7 @@ left as an exercise, what's needed to bridge existing systems.
   definitions (OpenAPI, Swagger, Postman Collections, GraphQL). A direct
   counterpart to the MCP spec above — read together to see how the
   protocol's tool/prompt/resource primitives translate into a working
-  server. Written in C#.
+  server. Written in C#. No upstream changes in the 2026-11-23 refresh.
 
 ### Data & dataset specifications
 
@@ -144,6 +203,19 @@ left as an exercise, what's needed to bridge existing systems.
   tabular data so they are findable, accessible, interoperable, and
   reusable (FAIR). A natural reference point for "what does
   `data.md`/`dataset.json` look like?"
+
+### Also pinned (profiled, not yet grouped above)
+
+- [get-shit-done](./get-shit-done) — GSD, a context-engineering workflow
+  orchestrator. **Archived** on 2026-05-31; development continues as GSD
+  Core at https://github.com/open-gsd/gsd-core, which is not pinned here.
+- [openui](./openui) — Thesys's OpenUI, a generative-UI framework with its
+  own language, OpenUI Lang, now specified in a written 1.0 spec (`spec/`).
+- [superpowers](./superpowers) — Jesse Vincent's agent-development
+  methodology delivered as a multi-harness skill plugin (v7.x).
+- [symphony](./symphony) — OpenAI's service specification for a daemon
+  that turns an issue tracker into a work queue for coding agents; now
+  tracker-generic (Linear, GitHub Issues, Jira, Asana, GitLab).
 
 ---
 

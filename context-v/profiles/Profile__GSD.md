@@ -10,11 +10,11 @@ study: studies/open-specs-and-standards
 profile_path: studies/open-specs-and-standards/get-shit-done
 profile_kind: tool
 date_created: 2026-05-05
-date_modified: 2026-08-18
+date_modified: 2026-11-23
 site_uuid: 04f5330d-0816-4dbb-8031-a093d82a834f
 hex_code: i63ife
 date_authored_initial_draft: 2026-05-05
-date_authored_current_draft: 2026-05-05
+date_authored_current_draft: 2026-11-23
 lede: >-
   GSD's wager is that the limiting factor is context rot, not spec rigor — so
   it ships no spec grammar and resets the window per task.
@@ -27,7 +27,8 @@ summary: >-
   of planning artifacts, which are themselves system prompts), atomic per-task commits with
   file-locked STATE.md writes, and the heavier-than-average recovery surface. Use it to understand
   the context-rot argument and the thin-orchestrator pattern; note the profile's explicit list of
-  cases where a spec artifact matters more than a workflow.
+  cases where a spec artifact matters more than a workflow. The pinned repo was archived on
+  2026-05-31; development continues as GSD Core at open-gsd/gsd-core, which this study does not pin.
 authors:
   - Michael Staton
 status: Reference
@@ -37,13 +38,16 @@ type: Profiles
 
 # GSD (Get Shit Done) — Profile
 
-A profile of GSD as it lives in this study (`studies/open-specs-and-standards/get-shit-done/`). Cites pinned paths so you can jump to source rather than trust paraphrase. Read this alongside [`Profile__OpenSpec.md`](./Profile__OpenSpec.md) and [`Profile__Spec-Kit.md`](./Profile__Spec-Kit.md) — GSD targets the same problem space but takes a third design path: spec-driven *workflow orchestration*, not a spec format.
+A profile of GSD as it lives in this study (`studies/open-specs-and-standards/get-shit-done/`). Cites pinned paths so you can jump to source rather than trust paraphrase.
+
+> [!NOTE]
+> **This repo is archived.** `gsd-build/get-shit-done` was archived on GitHub after its last commit on 2026-05-31. Its `README.md` is now a 12-line redirect: "This repository is no longer the active home for GSD development. The project now continues as **GSD Core** in the Open GSD repository: https://github.com/open-gsd/gsd-core." Every other file is still present at the pin. Citations below of the form `README.md:N` refer to the README as it stood at the previous pin (`git show 61773332d61a:README.md`); the translated READMEs (`README.zh-CN.md`, `README.ja-JP.md`, `README.ko-KR.md`, `README.pt-BR.md`) still carry the full text. Whether to re-point this study at `open-gsd/gsd-core` is an open decision. Read this alongside [`Profile__OpenSpec.md`](./Profile__OpenSpec.md) and [`Profile__Spec-Kit.md`](./Profile__Spec-Kit.md) — GSD targets the same problem space but takes a third design path: spec-driven *workflow orchestration*, not a spec format.
 
 ## TL;DR
 
 GSD is a **context-engineering and multi-agent-orchestration framework** that ships as an installer (`npx get-shit-done-cc`) and writes a fleet of slash commands, skills, subagents, hooks, and references into your AI runtime's config directory. The thesis (`get-shit-done/README.md:9`) is that the limiting factor of AI coding is not spec rigor — it's **"context rot," the quality degradation that happens as the model fills its context window**. GSD's answer is to drive every non-trivial task through fresh-context subagents coordinated by thin orchestrators, with state persisted as plain files in `.planning/`.
 
-It is **not** a markdown convention (OpenSpec) and **not** a methodology with phase gates (Spec Kit). It is a *runtime system*: 65 shipped slash commands, 33 specialized subagents, 11 hooks, and a CLI (`gsd-sdk`) that workflow files query for state — see `get-shit-done/docs/INVENTORY.md:1-13`. The author's framing (`README.md:64-77`) is solo-developer-anti-enterprise — "I don't write code — Claude Code does … no enterprise roleplay bullshit." The system is heavy *under the hood* so the user-facing surface can stay at a six-command loop.
+It is **not** a markdown convention (OpenSpec) and **not** a methodology with phase gates (Spec Kit). It is a *runtime system*: 65 shipped slash commands, 33 specialized subagents, 11 hooks, and a CLI (`gsd-sdk`) that workflow files query for state — see `docs/INVENTORY.md:1-13`. (At the final pin the filesystem has 67 command files under `commands/gsd/`, 33 agents, and 14 files under `hooks/`; INVENTORY.md says its counts were taken at v1.36.0 and may drift.) The author's framing (`README.md:64-77`) is solo-developer-anti-enterprise — "I don't write code — Claude Code does … no enterprise roleplay bullshit." The system is heavy *under the hood* so the user-facing surface can stay at a six-command loop.
 
 If OpenSpec's pitch is "tree-of-requirements + deltas," and Spec Kit's pitch is "constitution + gates + executable spec," GSD's pitch is **"a runnable pipeline that keeps the model's context fresh while it does the work."**
 
@@ -185,7 +189,7 @@ hij789k feat(08-02): implement password hashing
 lmn012o feat(08-02): create registration endpoint
 ```
 
-Plus a "parallel commit safety" layer (`docs/ARCHITECTURE.md:374-380`): parallel executors skip pre-commit hooks via `--no-verify` (the orchestrator runs them once after the wave), and `STATE.md` writes go through atomic file-locking (`STATE.md.lock` with `O_EXCL`, 10s stale-lock detection). This is the kind of detail you only build if you've watched two parallel agents stomp on each other's STATE.md edits.
+Plus a "parallel commit safety" layer (`docs/ARCHITECTURE.md:389-395`): parallel executors skip pre-commit hooks via `--no-verify` (the orchestrator runs them once after the wave), and `STATE.md` writes go through atomic file-locking (`STATE.md.lock` with `O_EXCL`, 10s stale-lock detection). This is the kind of detail you only build if you've watched two parallel agents stomp on each other's STATE.md edits.
 
 ## What's actually inside this submodule
 
@@ -193,7 +197,8 @@ Mapping the upstream layout you'll be reading:
 
 | Path | What's there |
 |------|--------------|
-| `get-shit-done/README.md` | Pitch, install, full command reference, walkthrough (~1000 lines) |
+| `get-shit-done/README.md` | At this pin: a 12-line "GSD Has Moved" redirect to `open-gsd/gsd-core`. At the previous pin: pitch, install, full command reference, walkthrough (~1000 lines) |
+| `get-shit-done/README.{zh-CN,ja-JP,ko-KR,pt-BR}.md` | Translated READMEs that still carry the full pre-archive text |
 | `get-shit-done/CONTEXT.md` | Internal domain glossary (Dispatch Policy Module, Query Runtime Context Module, etc.) |
 | `get-shit-done/CHANGELOG.md` | Per-release change log |
 | `get-shit-done/docs/USER-GUIDE.md` | End-to-end walkthrough + config reference (~1400 lines) |
@@ -220,6 +225,8 @@ If you only have time for two files: read `docs/ARCHITECTURE.md` end-to-end (it'
 ## How to get started (if you actually wanted to use it)
 
 ### Install once
+
+This section describes the archived repo's install path. The final commits renamed the package in `docs/FEATURES.md` and `docs/USER-GUIDE.md` to `@opengsd/get-shit-done-redux`, while `package.json` still says `get-shit-done-cc`; check `open-gsd/gsd-core` for the current package name before installing.
 
 ```bash
 # Interactive — prompts for runtime + location
@@ -302,18 +309,27 @@ The three tools share a problem space (human + AI alignment) but make almost ort
 |------|-----|----------|----------|
 | **Primary artifact** | `.planning/` directory of typed files (PROJECT, REQUIREMENTS, ROADMAP, STATE, PLAN, SUMMARY) | `.specify/` + `specs/NNN-feature/` (spec.md, plan.md, tasks.md, contracts/, quickstart.md) | `openspec/specs/` + `openspec/changes/<name>/` (proposal, design, tasks, delta specs) |
 | **Spec primitive** | XML `<task>` block with `<verify>` and `<done>` | User Story (priority) + Acceptance Scenario + `[NEEDS CLARIFICATION]` | `Requirement:` (RFC 2119) + `Scenario:` (Given/When/Then) |
-| **Workflow** | 6-command loop driven by orchestrators that spawn fresh subagents | Linear phases gated by Constitution (`/speckit.constitution → specify → clarify → plan → tasks → implement`) | Fluid actions; dependency DAG enables but doesn't gate (`/opsx:propose → apply → archive`) |
+| **Workflow** | 6-command loop driven by orchestrators that spawn fresh subagents | Linear phases gated by Constitution (`/speckit.constitution → specify → clarify → plan → tasks → implement → converge`) | Fluid actions; dependency DAG enables but doesn't gate (`/openspec-propose → apply → archive`; `/opsx:*` in 1.x) |
 | **Change model** | Phase = unit of work; plans within phase; atomic git commits per task | Full spec per feature in `specs/NNN-name/`; new feature = new branch + folder | Delta specs (`ADDED/MODIFIED/REMOVED`) merged into source-of-truth on archive |
 | **Architectural discipline** | None encoded; size-budget tests on workflow files | Constitution with 9 articles + phase gates (Simplicity, Anti-Abstraction, Integration-First) | Convention-light; trust the human + agent loop |
 | **Parallelism** | Wave-based: planner emits dependency graph, executor runs independent plans concurrently | None encoded; `[P]` markers in `tasks.md` flag parallelizability for the implementer | Schema DAG can be walked in parallel where artifacts are independent |
 | **Token-cost awareness** | First-class: eager skill listing, `--minimal` install (94% reduction), namespace meta-skills (#2792), MCP-budget docs | Implicit: extension/preset system can trim what loads, but no explicit token budget | Implicit: lightweight by default |
 | **Toolchain** | Node/npm (`get-shit-done-cc`), TypeScript SDK (`gsd-sdk`), shell hooks | Python (`uv` / `pipx`), shell scripts, DocFX site | Node/npm (`@fission-ai/openspec`) |
-| **Runtime reach** | 16 AI tools (Claude Code, OpenCode, Gemini, Kilo, Codex, Copilot, Cursor, Windsurf, Antigravity, Augment, Trae, Qwen, Hermes, CodeBuddy, Cline) | 30+ integrations | 25+ integrations |
-| **Extensibility** | None formal — fork or PR upstream | Formal: 4-level priority stack (overrides → presets → extensions → core), 80+ community extensions | Schema-driven: define your own artifact DAG in `schema.yaml` |
+| **Runtime reach** | 16 AI tools (Claude Code, OpenCode, Gemini, Kilo, Codex, Copilot, Cursor, Windsurf, Antigravity, Augment, Trae, Qwen, Hermes, CodeBuddy, Cline) | 43 integrations (Nov 2026) | 25+ integrations |
+| **Extensibility** | None formal — fork or PR upstream | Formal: 4-level priority stack (overrides → presets → extensions → core) plus workflows and bundles, 200+ community extensions | Schema-driven: define your own artifact DAG in `schema.yaml` |
+| **Status (Nov 2026)** | Pinned repo archived; continues as `open-gsd/gsd-core` | Active, v1.4.x | Active, v2.1.x |
 | **Recovery / state** | `/gsd-pause-work` + `HANDOFF.json` + `STATE.md` + `/gsd-resume-work` + `/gsd-forensics` + `/gsd-health --repair` | Manual — re-run the affected phase command | Manual — change folders are inherently resumable |
 | **Best fit** | Solo or small-team delivery on greenfield + light brownfield, where unattended multi-hour runs are the goal | Greenfield enterprise work where alignment, compliance, and traceability matter | Brownfield iteration where you want spec discipline without ceremony |
 
 GSD's own README puts it bluntly (`README.md:67-68`): "BMAD, Speckit … all seem to make things way more complicated than they need to be (sprint ceremonies, story points, stakeholder syncs, retrospectives, Jira workflows) or lack real big picture understanding of what you're building. … The complexity is in the system, not in your workflow." That framing is honest about the trade: GSD pushes the complexity into the runtime so the user-facing surface stays at six commands, where Spec Kit pushes it into the spec artifacts and OpenSpec keeps it minimal everywhere by sacrificing orchestration.
+
+## Changes since the previous pin (2026-05-04 → 2026-05-31)
+
+`61773332d61a` → `bdcaab2c752d`, 561 commits, all within May 2026. The previous pin's `package.json` read `1.39.0-rc.4`; releases in range include v1.39.x–v1.41.0, **v1.42.0–v1.42.3** (last stable, 2026-05-16), and v1.43.0-rc1/rc2. `main` ends at `1.50.0-canary.0`. License unchanged (MIT).
+
+- **The repo is archived and has moved.** The final commits (2026-05-31) replaced `README.md` with a redirect to `open-gsd/gsd-core` ("GSD Core", earlier called "GSD Redux"), pointed the auto-close workflow at the new repo, and renamed package references in two docs to `@opengsd/get-shit-done-redux`. No further upstream changes will land here.
+- Before archiving, May's work was mostly hardening: `STATE.md` lock retries, worktree-isolation cleanup, phase-ID conventions, consolidation of command routers and test modules, and CI gating. The architecture this profile describes is unchanged (`docs/ARCHITECTURE.md` cited ranges hold, apart from the commit-safety section moving to `:389-395`).
+- The lede still describes GSD's design, but the pinned repo is now a historical snapshot.
 
 ## One-line summary
 
